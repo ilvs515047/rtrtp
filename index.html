@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的 GitHub 3D 模型展示</title>
+    <title>我的 GitHub 3D 模型展示 (真實渲染版)</title>
     
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     
     <style>
-        /* 清除瀏覽器預設邊距 */
         body { margin: 0; padding: 0; }
         
-        /* 設定 3D 視窗的大小與背景 */
         model-viewer {
             width: 100vw;
-            height: 100vh; /* 佔滿整個螢幕 */
-            background-color: #e0e5ec; /* 柔和的淺灰色背景 */
+            height: 100vh;
+            background-color: #e0e5ec; 
         }
     </style>
 </head>
@@ -25,7 +23,10 @@
         src="https://cdn.jsdelivr.net/gh/ilvs515047/rtrtp@main/123.glb" 
         camera-controls 
         auto-rotate 
-        shadow-intensity="1"
+        shadow-intensity="1.5"
+        shadow-softness="1"
+        exposure="1"
+        environment-image="neutral"
         alt="我的 3D 模型">
     </model-viewer>
 
