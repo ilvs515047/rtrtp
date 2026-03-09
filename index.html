@@ -3,31 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的 GitHub 3D 模型展示 (真實渲染版)</title>
+    <title>我的建築模型 - 真實渲染版</title>
     
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     
     <style>
-        body { margin: 0; padding: 0; }
+        :root {
+            --bg-color: #f0f2f5; /* 稍微帶點灰藍，更有建築質感的底色 */
+        }
+        body { margin: 0; padding: 0; background-color: var(--bg-color); font-family: sans-serif; }
         
         model-viewer {
             width: 100vw;
             height: 100vh;
-            background-color: #e0e5ec; 
+            --poster-color: transparent;
+        }
+
+        /* 標題小裝飾 */
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
+    <div class="info-panel">
+        <h2 style="margin:0; font-size: 18px;">建築模型渲染展示</h2>
+        <p style="margin:5px 0 0; font-size: 12px; color: #666;">使用了 PBR 材質優化與環境光貼圖</p>
+    </div>
+
     <model-viewer 
         src="https://cdn.jsdelivr.net/gh/ilvs515047/rtrtp@main/abc.glb" 
+        ios-src=""
+        poster="https://cdn.jsdelivr.net/gh/ilvs515047/rtrtp@main/abc.glb"
+        alt="我的 3D 建築模型"
+        shadow-intensity="1.5" 
+        shadow-softness="1" 
+        exposure="1"
         camera-controls 
         auto-rotate 
-        shadow-intensity="1.5"
-        shadow-softness="1"
-        exposure="1"
-        environment-image="neutral"
-        alt="我的 3D 模型">
+        rotation-per-second="30deg"
+        camera-orbit="45deg 75deg 10m"
+        field-of-view="30deg"
+        environment-image="neutral" 
+        tone-mapping="commerce"
+        enable-pan>
+        
+        <div slot="progress-bar"></div>
     </model-viewer>
 
 </body>
